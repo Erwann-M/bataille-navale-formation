@@ -1,0 +1,323 @@
+html {
+  --cell-size: 50px;
+  --color-one: #0bad93;
+  --color-one-clair: #62c2b2;
+  --color-cell: #0bad9267;
+  --color-two: #fffdd8;
+  --color-hit: green;
+  --color-splash: red;
+  --bg-img: url(../img/fond-dc3a9cran-plage.jpg);
+  font-family: "Lucida Console", sans-serif;
+  text-align: center;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-one);
+}
+
+p {
+  margin: 1rem 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+#grid {
+  font-size: 14px;
+  display: inline-block;
+  margin: 1rem 0;
+  border: 1px solid var(--color-one);
+}
+
+.row {
+  background-image: url(../img/pngegg.png);
+  background-size: contain;
+  display: flex;
+}
+
+.cell {
+  color: var(--color-one);
+  font-size: 1.2rem;
+  text-align: center;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  line-height: var(--cell-size);
+  white-space: nowrap;
+  flex-grow: 1;
+  border-bottom: 1px solid var(--color-one);
+  border-right: 1px solid var(--color-one);
+}
+
+header.cell {
+  background-color: var(--color-one);
+  color: var(--color-two);
+  font-weight: bold;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.row:last-child .cell {
+  border-bottom: 0;
+}
+
+.row .cell:last-child {
+  border-right: 0;
+}
+
+#actions {
+  display: none;
+  background-color: var(--color-two);
+  width: 70%;
+  height: 30px;
+  color: var(--color-one);
+  border: 1px solid var(--color-one);
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  overflow: auto;
+  font-size: 1rem;
+}
+
+.hide-actions {
+  display: none;
+}
+
+#game {
+  margin-top: 50px;
+  display: none;
+  padding: 20px 30px;
+  width: fit-content;
+  background-color: var(--color-two);
+  border: 1px solid var(--color-one);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+}
+
+#beforegame {
+  font-weight: bold;
+  border: 1px solid var(--color-one);
+  background-color: var(--color-two);
+  color: var(--color-one);
+  box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 10px;
+  width: 40%;
+  margin-top: 200px;
+  padding: 20px;
+}
+
+#username,
+#nbrows {
+  background-color: var(--color-two);
+  border: 1px solid var(--color-one);
+  border-radius: 5px;
+  color: var(--color-one);
+}
+
+#username:focus,
+#nbrows:focus {
+  outline: none;
+  background-color: var(--color-one);
+  border: 1px solid var(--color-two);
+  color: var(--color-two);
+  font-weight: bold;
+}
+
+.btn_start {
+  margin-top: 20px;
+}
+
+#game .form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#cellToHit {
+  border: none;
+  border-radius: 5px;
+  background-color: #a9e4dd;
+  width: 100px;
+  padding: 5px;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#cellToHit:focus {
+  outline: none;
+  background-color: #9ed3cc;
+}
+
+#missile {
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(133, 0, 0);
+  font-size: 15px;
+  padding: 5px 10px;
+  color: whitesmoke;
+  cursor: pointer;
+}
+
+#missile:hover {
+  border: rgb(139, 38, 38);
+  color: rgb(139, 38, 38);
+  background-color: #9ed3cc;
+}
+
+.btn_bottom {
+  border: none;
+  background-color: var(--color-one);
+  color: var(--color-two);
+  border-radius: 5px;
+  font-size: 15px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.btn_bottom:hover {
+  background-color: var(--color-one-clair);
+}
+
+/* cells classes */
+.cell.hit {
+  background-image: url(../img/flames.gif);
+  background-size: contain;
+  font-size: 0;
+}
+
+.cell.splash {
+  background-image: url(../img/water.gif);
+  background-size: contain;
+  font-size: 0;
+}
+
+/* themes */
+body.f0f {
+  --bg-img: url(../img/rose.jpeg);
+  --color-one: #ff00ff;
+  --color-one-clair: #ff6cff;
+  --color-cell: rgba(255, 0, 255, 0.493);
+  --color-two: #00ffff;
+  --color-hit: #00ff00;
+  --color-splash:#ffaa00;
+}
+
+body.black-and-white {
+  --bg-img: url(../img/blackwhite.jpg);
+  --color-one: #000;
+  --color-one-clair: rgb(71, 71, 71);
+  --color-cell: rgba(0, 0, 0, 0.432);
+  --color-two: #fff;
+  --color-hit: #aaa;
+  --color-splash: #666;
+}
+
+body.terminal {
+  background-color: black;
+  color: #33ff00;
+  --bg-img: url(../img/vert.jpg);
+  --color-one: #33ff00;
+  --color-one-clair: rgb(144, 255, 116);
+  --color-cell: rgba(51, 255, 0, 0.377);
+  --color-two: #000;
+  --color-hit: #33ff00;
+  --color-splash: #ffbb00;
+}
+
+div.cell:hover {
+  background-color: var(--color-cell);
+  cursor: crosshair;
+  /* cursor: url(./img/crosshair.png) 18 18, crosshair; */
+}
+
+#game .form {
+  display: none;
+}
+
+#overlayTouche {
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#imgOverlayTouche {
+  display: none;
+  width: 550px;
+}
+
+#overlayManque {
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#imgOverlayManque {
+  display: none;
+  width: 550px;
+}
+
+#score,
+h4 {
+  color: var(--color-one);
+  font-weight: bold;
+}
+
+#bottom_select {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#select_theme {
+  display: block;
+  margin-top: 20px;
+  background-color: var(--color-one);
+  color: var(--color-two);
+  border: 1px solid var(--color-two);
+  outline: none;
+}
+
+#select_theme:hover {
+  cursor: pointer;
+}
+
+#select_theme:focus {
+  background-color: var(--color-two);
+  color: var(--color-one);
+  border: 1px solid var(--color-one);
+  outline: none;
+}
